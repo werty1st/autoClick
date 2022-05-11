@@ -1,0 +1,41 @@
+{
+    "description": "Google One Scheduler",
+    "manifest_version": 3,
+    "name": "Click at Midnight",
+    "author": "Ronny Adams",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "options_ui": {
+        "page": "options.html"
+    },
+    "action": {
+        "default_icon": {
+            "128": "images/icon.png"
+        },
+        "default_title": "Default Title"
+    },
+    "icons": {
+        "128": "images/icon.png"
+    },
+    "permissions": [
+        "storage",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://partnerdash.google.com/*"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["https://partnerdash.google.com/*"],
+          "js": ["content-script.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [ "/images/*" ],
+            "matches": [ "https://partnerdash.google.com/*" ]
+        }
+    ],
+    "version": "1.0.0"
+}
